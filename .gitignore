@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+
+*.h5
+
+*.sublime-*
