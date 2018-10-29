@@ -26,5 +26,6 @@ cat $PWD/bin/nest_vars.sh >> ~/.bashrc && source ~/.bashrc
 
 cd ../../
 source activate ${ENV_NAME}
-pip install --upgrade pip
 pip install -r requirements.txt
+
+pip install -e git+https://github.com/iteratec/traze-client-python.git#egg=traze

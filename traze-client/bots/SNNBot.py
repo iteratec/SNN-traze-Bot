@@ -2,7 +2,6 @@ import time
 import random
 import os, sys
 import snn.parameters as params
-sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 from traze.bot import Action, BotBase
 from traze.client import World, Game

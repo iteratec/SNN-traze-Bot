@@ -1,5 +1,7 @@
 # Traze Client Python
-A Traze client based on Python 3 with an example bot using a Spiking Neural Network which is simulated with [NEST](http://www.nest-simulator.org/).
+A Traze client based on Python 3 with an example bot using a Spiking Neural Network simulated with [NEST](http://www.nest-simulator.org/).
+
+The code is partially based on [this repo](https://github.com/YuriyGuts/snake-ai-reinforcement) and was developed by Henrique Orefice and Alexander Abstreiter.
 
 ## Hosted by iteratec
 You can join a hosted game instance at [traze.iteratec.de](https://traze.iteratec.de).
@@ -10,7 +12,7 @@ We recommend installing using the install file:
 ```
 source install.sh
 
-#start the bot
+# Start the bot
 python ./bots/SNNBot.py <minutes_until_reset>
 ```
 
@@ -37,8 +39,14 @@ or source it to .profile with `cat </build/path>/bin/nest_vars.sh >> ~/.profile`
 
 Install the requirements and run the bot:
 ```
-cd <path/to/SNN-Traze>
-pip install -r ./traze-client/requirements.txt
+source activate traze
+cd <path/to/SNN-Traze>/traze-client/
+pip install -r requirements.txt
+
+# Traze client installation from GitHub
+pip install -e git+https://github.com/iteratec/traze-client-python.git#egg=traze
+
+# Start the bot
 python ./traze-client/bots/SNNBot.py <minutes_until_reset>
 ```
 

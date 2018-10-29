@@ -1,8 +1,6 @@
 # Traze and Snake with Spiking Neural Networks
 Bots for [Traze](/traze-client) and [Snake](/Snake) using Spiking Neural Networks.
 
-The code is partially based on [this repo](https://github.com/YuriyGuts/snake-ai-reinforcement) and developed by Henrique Orefice and Alexander Abstreiter.
-
 ## Traze
 <img src="traze.gif" width="400" height="400" />
 
