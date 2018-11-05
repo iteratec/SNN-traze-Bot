@@ -1,15 +1,27 @@
 import random
 
-from typing import Set
-from traze.bot import Action, BotBase
-from traze.client import World, Game
+from traze.bot import BotBase
+from traze.client import World
+
 
 class RandomBot(BotBase):
-    def __init__(self, game:'Game'):
+    def __init__(self, game):
+        """
+        Args:
+            game (Game): The game object.
+        Returns:
+            ---
+        """
         super().__init__(game)
-        self._lastAction:Action = None
-        
-    def next_action(self, actions:Set[Action]) -> Action:
+        self._lastAction = None
+
+    def next_action(self, actions):
+        """
+        Args:
+            actions (Set[Action]): All possible actions.
+        Returns:
+            Action: Next action.
+        """
         if not actions:
             return None
 
@@ -18,5 +30,6 @@ class RandomBot(BotBase):
             self._lastAction = random.choice(tuple(actions))
         return self._lastAction
 
+
 if __name__ == "__main__":
-    RandomBot(World().games[0]).play(1)
+    RandomBot(World().games[0]).play(3)

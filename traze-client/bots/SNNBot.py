@@ -4,13 +4,13 @@ import os, sys
 import snn.parameters as params
 
 from traze.bot import Action, BotBase
-from traze.client import World, Game
+from traze.client import World
 from snn.agent import SNNAgent
 
 
 class SNNBot(BotBase):
-    def __init__(self, game):
-        super(SNNBot, self).__init__(game, "SLab-ML Muenchen")
+    def __init__(self, game, name="SLab-ML Muenchen"):
+        super(SNNBot, self).__init__(game, name)
         self.agent = SNNAgent(verbose=0)
         self.reset_bot()
 
@@ -94,12 +94,12 @@ class SNNBot(BotBase):
         return self
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2 or not sys.argv[1].isdigit():
-        print("Usage: python %s <minutes_until_reset>" % sys.argv[0])
+    if len(sys.argv) < 2 or not sys.argv[1].isdigit():
+        print("Usage: python %s <minutes_until_reset> [bot_name]" % sys.argv[0])
         exit(1)
     weights_path = params.default_dir + params.weights_file
     while True:
         if os.path.exists(weights_path):
             os.remove(weights_path)
             print("Deleted weights file.")
-        SNNBot(World().games[0]).play(int(sys.argv[1]) * 60)
+        SNNBot(World().games[0], *sys.argv[2:3]).play(int(sys.argv[1]) * 60)
