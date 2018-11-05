@@ -98,8 +98,10 @@ if __name__ == "__main__":
         print("Usage: python %s <minutes_until_reset> [bot_name]" % sys.argv[0])
         exit(1)
     weights_path = params.default_dir + params.weights_file
+    bot = SNNBot(World().games[0], *sys.argv[2:3])
+    
     while True:
         if os.path.exists(weights_path):
             os.remove(weights_path)
             print("Deleted weights file.")
-        SNNBot(World().games[0], *sys.argv[2:3]).play(int(sys.argv[1]) * 60)
+        bot.play(int(sys.argv[1]) * 60)
